@@ -1,15 +1,69 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import br.com.dio.desafio.*;
+
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Curso curso1 = new Curso();
+        curso1.setTitulo("Curso java");
+        curso1.setDescricao("Descrição curso java");
+        curso1.setCargaHoraria(8);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Curso curso2 = new Curso();
+        curso2.setTitulo("Curso java");
+        curso2.setDescricao("Descrição curso js");
+        curso2.setCargaHoraria(4);
+
+        Mentoria mentoria = new Mentoria();
+        mentoria.setTitulo("Mentoria de java");
+        mentoria.setDescricao("Descrição mentoria java");
+        mentoria.setData(LocalDate.now());
+
+        /*System.out.println(curso1);
+        System.out.println(curso2);
+        System.out.println(mentoria);*/
+
+        BootCamp bootCamp = new BootCamp();
+        bootCamp.setNome("Bootcamp Java Developer");
+        bootCamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootCamp.getConteudos().add(curso1);
+        bootCamp.getConteudos().add(curso2);
+        bootCamp.getConteudos().add(mentoria);
+
+        Dev devSabrina = new Dev();
+        devSabrina.setNome("Sabrina");
+        devSabrina.inscreverBootcamp(bootCamp);
+        System.out.println("Conteúdos Inscritos Sabrina" + devSabrina.getConteudosInscritos());
+        devSabrina.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Sabrina" + devSabrina.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos Sabrina" + devSabrina.getConteudosInscritos());
+        System.out.println("XP:" + devSabrina.calcularTotalXp());
+
+        System.out.println("----------");
+
+        Dev devEva = new Dev();
+        devEva.setNome("Eva");
+        devEva.inscreverBootcamp(bootCamp);
+        System.out.println("Conteúdos Inscritos Eva" + devEva.getConteudosInscritos());
+        devEva.progredir();
+        devEva.progredir();
+        devEva.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Eva" + devEva.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos Eva" + devEva.getConteudosInscritos());
+        System.out.println("XP:" + devEva.calcularTotalXp());
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
